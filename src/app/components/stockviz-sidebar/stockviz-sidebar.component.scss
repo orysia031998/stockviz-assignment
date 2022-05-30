@@ -1,0 +1,50 @@
+  .main-head {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    width: 5vw;
+    height: 100vh;
+    z-index: 1;
+    border: 2px solid #383838;
+    transition: width 400ms;
+    background-color: #D0D0D0;
+    .head-nav{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+
+      app-button:last-child{
+        position: absolute;
+        bottom: 20px;
+      }
+    }
+
+
+    @media screen and (max-width: 768px) {
+      .head-nav {
+        padding: {
+          left: 7px;
+        }
+      }
+      &:hover {
+        .head-nav {
+          span {
+            text-indent: 1em;
+          }
+        }
+      }
+    }
+
+  }
+
+  .main-head-collapsed {
+    position: sticky;
+    bottom: 0;
+    width: 15vw;
+    height: 100vh;
+    z-index: 1;
+    border: 2px solid #383838;
+    transition: width 400ms;
+    background-color: #D0D0D0;
+  }

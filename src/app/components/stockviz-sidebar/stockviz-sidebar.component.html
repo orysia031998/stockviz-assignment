@@ -1,0 +1,15 @@
+<div class="main-head" #mainHead>
+  <nav class="head-nav">
+    <app-button
+      buttonClass="mt-4"
+      [buttonText]="searchButtonText"
+      buttonIcon="search"
+      (onButtonClick)="onSearchButtonClick.emit()"
+    ></app-button>
+    <app-button
+      [buttonText]="collapseBtnText"
+      [buttonIcon]="collapseBtnIcon"
+      (onButtonClick)="collapseSidebar()"
+    ></app-button>
+  </nav>
+</div>

@@ -1,0 +1,36 @@
+<div class="card-container" *ngFor="let company of companyList; let i = index">
+  <div class="card-header">
+    <div>
+      <span>{{ company?.name }}</span>
+    </div>
+    <div>
+      <span class="green-text">NASDAQ: </span>
+      <span>{{ company?.id }}</span>
+      <span class="green-text">Currency: </span>
+      <span>{{ getCurrency(company?.region_id) }}</span>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td *ngFor="let item of headerItems">{{ item }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td *ngFor="let item of getTableData(company)">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="company-description">
+    <div [ngClass]="{ limitTextHeight: !isReadMore[i] }">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+    <a (click)="showText(i)" class="read-more">
+      {{ !isReadMore[i] ? 'Read More' : 'Read Less' }}
+    </a>
+  </div>
+</div>

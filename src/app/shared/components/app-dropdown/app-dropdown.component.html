@@ -1,0 +1,22 @@
+<span>{{ dropdownTitle }}</span>
+<div
+  clickOutside
+  [ngClass]="getDropdownClass()"
+  (click)="showDropdown()"
+  (clickOutside)="closeDropdown()"
+  #dropdownHeader
+>
+  <label *ngIf="!selectedItem">{{ dropdownPlaceholder }}</label>
+  <label *ngIf="!!selectedItem" class="select__label">{{ selectedItem }}</label>
+  <div *ngIf="showDropdownContent" class="dropdown-content" [ngStyle]="{ width: getOptionWidth() }">
+    <ul class="select2-results__options">
+      <li
+        *ngFor="let item of dropdownItems; let i = index"
+        class="select2-results__option select2-results__option--selectable"
+        (click)="selectItem(i)"
+      >
+        {{ item?.label }}
+      </li>
+    </ul>
+  </div>
+</div>

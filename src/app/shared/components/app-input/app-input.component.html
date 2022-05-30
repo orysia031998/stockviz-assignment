@@ -1,0 +1,11 @@
+<div class="textbox">
+  <label>{{ inputLabel }}</label>
+  <input
+    [ngClass]="inputClass"
+    [type]="inputType"
+    [disabled]="isDisabled"
+    [(ngModel)]="inputValue"
+    [placeholder]="inputPlaceholder"
+    (input)="onInput.emit(inputValue)"
+  />
+</div>

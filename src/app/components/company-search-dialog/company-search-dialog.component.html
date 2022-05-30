@@ -1,0 +1,45 @@
+<div [ngClass]="getDialogClass()">
+  <div>
+    <div class="search-header">
+      <div>
+        <span>{{ 'find company' | uppercase }}</span>
+        <app-icon icon="info" svgClass="info-icon" svgWidth="30px" svgHeight="30px"></app-icon>
+      </div>
+      <app-button buttonIcon="close" (onButtonClick)="onCloseButtonClick.emit()"></app-button>
+    </div>
+    <div class="search-options-block">
+      <app-dropdown
+        dropdownTitle="Region selection"
+        dropdownPlaceholder="Select region"
+        [dropdownItems]="dropdownItems"
+        (onDropdownItemClick)="chooseRegion($event)"
+      ></app-dropdown>
+      <app-input
+        [inputClass]="inputClass"
+        inputLabel="Search company"
+        inputPlaceholder="Enter here"
+        (onInput)="getInputValue($event)"
+      ></app-input>
+      <app-button buttonText="Search" buttonClass="search-btn" (onButtonClick)="searchCompany()"></app-button>
+    </div>
+    <table class="search-table">
+      <thead>
+        <tr>
+          <td *ngFor="let item of theadItems">
+            <div>
+              <span>{{ item }}</span> <app-icon icon="sort-arrow" svgClass="fi-12"></app-icon>
+            </div>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of companyList">
+          <td>{{ item.name }}</td>
+          <td>{{ getCompanyRegion(item) }}</td>
+          <td>{{ item.sector }}</td>
+          <td>{{ item.industry }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

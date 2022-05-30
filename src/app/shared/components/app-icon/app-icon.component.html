@@ -1,0 +1,6 @@
+<div [ngClass]="containerClass">
+  <svg [ngClass]="svgClass" [attr.width]="svgWidth" [attr.height]="svgHeight" *ngIf="visible">
+    <use [attr.href]="'../../../../assets/feather-sprite.svg#' + icon"></use>
+  </svg>
+  <span [ngClass]="textClass"><ng-content></ng-content></span>
+</div>

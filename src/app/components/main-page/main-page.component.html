@@ -1,0 +1,16 @@
+<ng-container *ngIf="{ companyList: companyList$ | async, regionList: regionList$ | async } as data">
+  <div class="main-page-container">
+    <app-stockviz-sidebar (onSearchButtonClick)="showSearchDialog()"> </app-stockviz-sidebar>
+    <app-stockviz-company-details
+      [companyList]="data?.companyList"
+      [regionList]="data?.regionList"
+    ></app-stockviz-company-details>
+  </div>
+  <app-company-search-dialog
+    [isVisibleDialog]="isVisibleDialog"
+    (onCloseButtonClick)="closeDialog()"
+    [companyList]="data?.companyList"
+    [regionList]="data?.regionList"
+    [dropdownItems]="getDropdownItems(data?.regionList)"
+  ></app-company-search-dialog>
+</ng-container>
